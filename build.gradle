@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+}
+
+group = 'spacetravel'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+
+dependencies {
+    implementation 'org.hibernate.orm:hibernate-core:6.1.5.Final'
+    implementation 'com.vladmihalcea:hibernate-types-52:2.14.0'
+    implementation 'org.slf4j:slf4j-api:2.0.6'
+    // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-ant
+    implementation 'org.hibernate.orm:hibernate-ant:6.2.0.Final'
+
+    // https://mvnrepository.com/artifact/org.flywaydb/flyway-core
+    implementation group: 'org.flywaydb', name: 'flyway-core', version: '9.15.1'
+
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-reload4j
+    implementation 'org.slf4j:slf4j-reload4j:2.0.7'
+
+    runtimeOnly 'org.postgresql:postgresql:42.5.1'
+
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.26'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+
+//    // https://mvnrepository.com/artifact/com.h2database/h2
+//    testImplementation 'com.h2database:h2:2.1.214'
+
+    // https://mvnrepository.com/artifact/org.testcontainers/postgresql
+    testImplementation 'org.testcontainers:postgresql:1.17.6'
+
+
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
