@@ -5,14 +5,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.mapping.MetadataSource;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.schema.TargetType;
-import org.hibernate.tool.schema.spi.ExecutionOptions;
 import org.hibernate.type.SqlTypes;
 import spacetravel.entity.Client;
 import spacetravel.entity.Planet;
 import spacetravel.entity.Ticket;
+//import spacetravel.entity.Ticket;
 
 import java.util.EnumSet;
 
