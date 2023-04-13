@@ -34,20 +34,7 @@ public class HibernateUtil {
 
         // Set the metadata in the SchemaExport object
         SchemaExport schemaExport = new SchemaExport();
-//        schemaExport.setHaltOnError(true);
-//        schemaExport.setFormat(true);
-//        schemaExport.setDelimiter(";");
-//        schemaExport.setOutputFile("schema.sql");
-//        schemaExport.setMetadata(metadataSources.buildMetadata());
-
-        // Export the schema to the database
-//        schemaExport.create(EnumSet.of(TargetType.DATABASE), new ExecutionOptions()
-//                .setHaltOnError(true)
-//                .setFormat(true)
-//                .setDelimiter(";")
-//                .setOutputFile("schema.sql"));
-
-        schemaExport.execute(database, SchemaExport.Action.BOTH, metadataSources.buildMetadata());
+        schemaExport.execute(database, SchemaExport.Action.CREATE, metadataSources.buildMetadata());
 
         return configuration.buildSessionFactory();
     }

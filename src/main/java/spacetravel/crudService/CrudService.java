@@ -9,5 +9,5 @@ public interface CrudService<T, I> {
     I create(T value);
     T read(I id);
     T update(T value);
-    void delete(T value);
+    boolean delete(I id);
 }

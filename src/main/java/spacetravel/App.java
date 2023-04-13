@@ -12,12 +12,6 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         new DatabaseInitService().initDb();
-
-//        try (Session session = HibernateUtil.buildSessionFactory().openSession()) {
-//            Transaction transaction = session.beginTransaction();
-//
-//            transaction.commit();
-//        }
     }
 
 }

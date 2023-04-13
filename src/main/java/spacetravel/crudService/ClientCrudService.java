@@ -47,11 +47,13 @@ public class ClientCrudService implements CrudService<Client, Long> {
     }
 
     @Override
-    public void delete(Client value) {
+    public boolean delete(Long id) {
         try (Session session = HibernateUtil.buildSessionFactory().openSession()){
             Transaction transaction = session.beginTransaction();
-            session.remove(value);
+            Client client = session.get(Client.class, id);
+            session.remove(client);
             transaction.commit();
+            return true;
         }
     }
 }

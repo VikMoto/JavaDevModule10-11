@@ -6,6 +6,8 @@ import org.hibernate.query.Query;
 import spacetravel.entity.Planet;
 import spacetravel.util.HibernateUtil;
 
+import java.util.Optional;
+
 public class PlanetCrudService implements CrudService<Planet, String > {
 
     @Override
@@ -47,11 +49,21 @@ public class PlanetCrudService implements CrudService<Planet, String > {
     }
 
     @Override
-    public void delete(Planet value) {
+    public boolean delete(String id) {
         try (Session session = HibernateUtil.buildSessionFactory().openSession()){
+            Optional<Planet> planet;
             Transaction transaction = session.beginTransaction();
-            session.remove(value);
+            planet = Optional.ofNullable(session.get(Planet.class, id));
             transaction.commit();
+            if (planet.isPresent()) {
+                Transaction transaction2 = session.beginTransaction();
+                session.remove(planet.get());
+                transaction2.commit();
+                return true;
+            } else {
+                return false;
+            }
+
         }
     }
 }

@@ -19,7 +19,4 @@ public class Client {
     private Long id;
 
     private String name;
-
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<Ticket> ticket;
 }

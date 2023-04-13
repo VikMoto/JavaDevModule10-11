@@ -21,9 +21,9 @@ public class Ticket {
     @Column(name = "created_at")
     private Timestamp createdAt;
 
-    @ManyToOne()
-    @JoinColumn(name = "client_id")
-    private Client client;
+//    @ManyToOne()
+//    @JoinColumn(name = "client_id")
+//    private Client client;
 
     @OneToOne()
     @JoinColumn(name = "from_planet_id")

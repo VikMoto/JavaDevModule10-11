@@ -1,6 +1,6 @@
 CREATE TABLE client (
   id BIGSERIAL PRIMARY KEY,
-  name VARCHAR(200) NOT NULL
+  name VARCHAR(200) NOT NULL UNIQUE
 );
 
 CREATE TABLE planet (
@@ -11,7 +11,7 @@ CREATE TABLE planet (
 CREATE TABLE ticket (
   id BIGSERIAL PRIMARY KEY,
   created_at TIMESTAMP,
-  client_id BIGINT REFERENCES client(id),
+  client_id BIGINT REFERENCES client(id) ON DELETE CASCADE ,
   from_planet_id VARCHAR(10) REFERENCES planet(id),
   to_planet_id VARCHAR(10) REFERENCES planet(id)
 );
