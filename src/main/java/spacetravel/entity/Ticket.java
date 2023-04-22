@@ -32,4 +32,8 @@ public class Ticket {
     @OneToOne
     @JoinColumn(name = "to_planet_id")
     private Planet toPlanetId;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 }
